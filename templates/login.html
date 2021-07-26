@@ -1,0 +1,46 @@
+{% extends 'layout.html'%}
+
+{% block title %} Housing Price Estimation {% endblock %}
+
+
+
+{% block body %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible text-center" role="alert"">
+  {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+
+<div class=" container full-height">
+    <div class="row flex center v-center full-height">
+        <div class="col-8 col-sm-4">
+            <div class="form-box">
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend>Sign in</legend><img id="avatar" class="avatar round"
+                            src="https://www.kindpng.com/picc/m/78-785827_user-profile-avatar-login-account-male-user-icon.png"><input
+                            class="form-control" type="text" id="username" name="username" placeholder="username" required><input
+                            class="form-control" type="password" id="password" name="password"
+                            placeholder="password" required><button class="btn btn-primary btn-block" type="submit">LOGIN
+                        </button>
+                    </fieldset>
+                </form>
+                <div class="border-top pt-3">
+                    <small class="text-muted">
+                        Need An Account? <a class="ml-2" href="register">Sign Up Now</a>
+                    </small><br>
+                    <small class="text-muted">
+                        Forgot Password?<a class="ml-2" href="{% url 'reset_password' %}">Click here</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends 'layout.html'%}
+
+{% block title %} Housing Price Estimation {% endblock %}
+
+
+{% block body %}
+{% if user.is_authenticated %}
+<p style="padding: 1px 20px; margin: 4px 0; color: teal;"> Hello, {{user.username}} </p>
+<br> <br>
+{% endif %}
+
+<div style="padding: 50px;
+text-align: center;
+background-color: #474e5d;
+color: white;">
+    <h1>Know your house price!</h1>
+    <p>Please fill up all forms and predict your house price</p>
+</div>
+
+
+<div class="row register-form">
+    <div class="container text-center">
+        <form action="{% url 'result' %}" style="padding: 12px 20px" style="margin: auto;" class="custom-form">
+            <b style="font-size: medium;color: rgb(20, 107, 107);">Predict your house price.
+            </b>
+
+            <br> <br><br>
+            {%csrf_token%}
+            <div class="form-row text-left" style="padding: 0px;">
+                <div class="col-md-6" id="message" style="width: 349px;height: 331px;min-width: 0px;">
+
+                    <div class="form-group has-feedback" style="height: 70px;width: 72%;"><label
+                            class="col-form-label" for="name-input-field">Bedroom
+                        </label>
+                        <input class="form-control" type="text" name="Bedroom" required>
+                    </div>
+
+                    <div class="form-group has-feedback" style="width: 72%;"><label class="col-form-label"
+                            for="name-input-field">Bathroom
+                        </label>
+                        <input class="form-control" type="text" name="Bathroom" required>
+                    </div>
+
+                    <div class="form-group has-feedback" style="width: 72%;"><label class="col-form-label"
+                            for="name-input-field">Floor
+                        </label>
+                        <input class="form-control" type="text" name="Floor" required>
+                    </div>
+
+
+                    <div class="form-group has-feedback" style="width: 72%;"><label class="col-form-label"
+                            for="name-input-field">Area
+                        </label>
+                        <input class="form-control" type="text" name="Area" required>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6" id="message" style="width: 682px;">
+                    <div class="form-group has-feedback" style="width: 72%;"><label for="City" required
+                            name="City">City:</label>
+
+                        <select class="form-control" style="height: 40px;" id="City" required name="City">
+                            <option value="9">Kathmandu</option>
+                            <option value="12">Lalitpur</option>
+                            <option value="16">Pokhara</option>
+                            <option value="2">Bhaktapur</option>
+                        </select>
+                    </div>
+
+                    <!-- Parking: <input type="text" required name="Parking"> <br> <br> -->
+
+
+                    <div class="form-group has-feedback" style="width: 72%;">
+                        <label for="Parking" required name="Parking">Parking:</label>
+
+                        <select class="form-control" style="height: 40px;" id="Parking" required name="Parking">
+                            <option value="0">No</option>
+                            <option value="1">YES</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group has-feedback" style="width: 72%;">
+                        <label for="Frontyard" required name="Frontyard">Frontyard:</label>
+
+                        <select style="height: 40px;" class="form-control" id="Frontyard" required name="Frontyard">
+                            <option value="0">No</option>
+                            <option value="1">YES</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group has-feedback" style="width: 72%;">
+                        <label class="form-group" for="RoadType" required name="RoadType">RoadType:</label>
+
+                        <select style="height: 40px;" class="form-control" id="RoadType" required name="RoadType">
+                            <option value="1">Blacktopped</option>
+                            <option value="3">Gravelled</option>
+                            <option value="2">Concrete</option>
+                            <option value="4">Paved</option>
+                            <option value="5">Soil Stabilized</option>
+                            <option value="0">Alley</option>
+
+                        </select>
+                    </div>
+                </div>
+                <br>
+
+            <input class="btn btn-primary btn-block" type="submit" name="submit">
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+{% endblock %}

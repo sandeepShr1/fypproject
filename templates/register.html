@@ -1,0 +1,74 @@
+{% extends 'layout.html'%}
+
+{% block title %} Housing Price Estimation {% endblock %}
+
+
+
+{% block body %}
+<div style="padding: 50px;
+text-align: center;
+background-color: #474e5d;
+color: white;">
+    <h1>Welcome to our website!</h1>
+    <p>Please fill up all forms and signup for free!</p>
+</div>
+    <div class="row register-form">
+        <div class="col-md-8 offset-md-2">
+            <form class="custom-form" action="register" method="POST">
+                <h1>Registration Form</h1>
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                  {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+
+                {% csrf_token %}
+                    <div class="form-row form-group">
+                    <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field" >First Name </label></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="text" name="first_name" required></div>
+                </div>
+                <div class="form-row form-group">
+                    <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field" >Last Name </label></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="text" name="last_name" required></div>
+                </div>
+                <div class="form-row form-group">
+                    <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field" >Username </label></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="text" name="username" required></div>
+                </div>
+                <div class="form-row form-group">
+                    <div class="col-sm-4 label-column"><label class="col-form-label" for="email-input-field">Email </label></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="email" name="email" required></div>
+                </div>
+                <div class="form-row form-group">
+                    <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field" >Date of Birth(YY-MM-DD) </label></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="text" name="birthday"></div>
+                </div>
+                <div class="form-row form-group">
+                    <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Phone </label></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="text" name="phone"></div>
+                </div>
+                <div class="form-row form-group">
+                    <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Gender </label></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="text" name="gender"></div>
+                </div>
+                <div class="form-row form-group">
+                    <div class="col-sm-4 label-column"><label class="col-form-label" for="pawssword-input-field">Password </label></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="password" name="password"></div>
+                </div>
+                <div class="form-row form-group">
+                    <div class="col-sm-4 label-column"><label class="col-form-label" for="repeat-pawssword-input-field">Repeat Password </label></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="password" name="confirm_password"></div>
+                </div>
+                <button class="btn btn-light submit-button" type="submit">Submit Form</button>
+                <div class="">
+                    <div class="text-muted">
+                        Already Have An Account? <a class="ml-2" href="signin">Sign In</a>
+                    </div>
+                </div></form>
+            </div>
+
+    </div>
+
+{% endblock %}

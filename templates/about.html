@@ -1,0 +1,35 @@
+{% extends 'layout.html'%}
+
+{% block title %} Housing Price Estimation {% endblock %}
+
+
+
+{% block body %}
+{% load static %}
+<div style="padding: 50px;
+text-align: center;
+background-color: #474e5d;
+color: white;">
+    <h1>About Us</h1>
+    <b>Nepalese Housing Price Estimation.</b>
+    <p>Nepalese Housing Price Estimation system is a web-based application that implements the Random Forest Algorithm
+        <br>to get the most accurate estimated value of a house.</p>
+</div>
+
+
+<div class="col-md-8 offset-md-4">
+
+    <p>About the admin of this website.</p>
+    <div class="card" style="width:400px">
+        <img class="card-img-top" src='{% static "img/me.png" %}' alt="Card image" style="width:100%; height: 50%;">
+        <div class="card-body">
+            <h4 class="card-title">Sandeep Shrestha</h4>
+            <p class="card-text">2038583</p>
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

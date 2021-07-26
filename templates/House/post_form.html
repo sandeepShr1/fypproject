@@ -1,0 +1,16 @@
+{% extends "House/base.html" %}
+{% load crispy_forms_tags%}
+{% block content %}
+<h1 style="text-align: center;">Post a house</h1>
+<form method="POST" enctype="multipart/form-data" style=" margin: auto; width: 65%; height:inherit ;display: block; padding-top: 20px; padding-left: 10px; ">
+    {% csrf_token %}
+    <fieldset class="form-group">
+        <!-- <legend class="border-bottom mb-4" style="text-align: center;">Post House</legend> -->
+        <h5 style="color: rgb(107, 105, 102);">Please fill up all fields.</h5>
+        {{ form|crispy }}
+    </fieldset>
+    <div class="form-group">
+        <button class="btn btn-outline-info" type="submit">Post</button>
+    </div>
+</form>
+{% endblock content %}

@@ -1,0 +1,65 @@
+{% extends 'layout.html'%}
+
+{% block title %} Housing Price Estimation {% endblock %}
+
+
+{% block body %}
+{% if user.is_authenticated %}
+{% endif %}
+<div style="padding: 50px;
+text-align: center;
+background-color: #474e5d;
+color: white;">
+    <h1>Result!!</h1>
+    
+    <p>“Home is where love resides, memories are created, friends always belong, and laughter never ends.”</p>
+</div>
+
+<div class="col-md-5 offset-md-0"  ">
+    <p class="fs-1" >
+    {% if ans == 0 %}
+    <p style="font-size: 30px;"> Pridected Price Range is <b>1 to 3</b> crore. </p>
+    {% endif %}
+
+    {% if ans == 1 %}
+    <p style="font-size: 30px;"> Pridected Price Range is <b>10 to 12</b> crore. </p>
+    {% endif %}
+
+    {% if ans == 2 %}
+    <p> Pridected Price Range is <b>13 to 15</b> crore.</p>
+    {% endif %}
+
+    {% if ans == 3 %}
+    <p> Pridected Price Range is <b>16 to 18</b> crore. </p>
+    {% endif %}
+
+    {% if ans == 4 %}
+    <p style="font-size: 30px;"> Pridected Price Range is <b style="color:rgb(7, 165, 112);">4 to 6</b> crore. </p>
+    {% endif %}
+
+    {% if ans == 5 %}
+    <p> Pridected Price Range is <b style="color:rgb(7, 165, 112);">7 to 9</b> crore. </p>
+    {% endif %}
+
+    {% if ans == 6 %}
+    <p> Pridected Price Range is above <b>19</b> crore. </p>
+    {% endif %}
+</p>
+</div>
+<br>
+<!-- <br>
+<pre>
+    Range of price:
+    0 = '1 to 3 cr'
+    1 = '10 to 12 cr'
+    2 = '13 to 15 cr'
+    3 = '16 to 18 cr'
+    4 = '4 to 6 cr'
+    5 = '7 to 9 cr'
+    6 = 'Above 19 cr'
+    
+</pre> -->
+
+<a class="nav-link" href="/" style="color:rgb(7, 165, 112);">Predict Again</a>
+
+{% endblock %}

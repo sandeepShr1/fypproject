@@ -1,0 +1,59 @@
+{% extends "House/base.html" %}
+{% block content %}
+{% if object.user == user %}
+<div class="container">
+  <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
+  <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+</div>
+{% endif %}
+
+
+
+
+
+<div class="container">
+  <hr>
+  <div class="row mt-3 mb-3 d-flex">
+
+    <!-- <div class="col-sm-6"> -->
+
+
+
+    <div class="col-sm-6">
+      <div><a href=""><img class="img-fluid" style="height:300px; width: 100%; object-fit: cover;"
+            src="{{post.image.url}}"></a>
+      </div>
+    </div>
+
+    <div class="col-sm-6 mt-2">
+      <h3
+        style="text-align:left;font-family:'Open Sans', sans-serif;font-size:18px;margin-right:0;margin-left:24px;line-height:34px;letter-spacing:0px;font-style:normal;font-weight:bold;">
+        {{ post.title }}<br></h3>
+      <p class="text-secondary"
+        style="text-align:left;font-size:14px;font-family:'Open Sans', sans-serif;line-height:22px;color:rgb(9,9,10);margin-left:24px;">
+        Description:
+        {{ post.description }} </p>
+      <p class="text-secondary"
+        style="text-align:left;font-size:14px;font-family:'Open Sans', sans-serif;line-height:22px;color:rgb(9,9,10);margin-left:24px;">
+        Rs.
+        {{ post.price }} </p>
+
+      <p class="text-secondary"
+        style="text-align:left;font-size:14px;font-family:'Open Sans', sans-serif;line-height:22px;color:rgb(9,9,10);margin-left:24px;">
+        <a href="{% url 'user-posts' post.user.username %}"> Posted by {{ post.user }} on
+          {{post.date_posted}}</a> </p>
+
+
+    </div>
+    <hr>
+
+
+
+
+
+
+    <!-- </div> -->
+
+  </div>
+
+  {% endblock content %}
